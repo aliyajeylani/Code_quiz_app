@@ -24,7 +24,14 @@ p {
     font-size: 20px;
 }
 
-.quiz {
+.center_text {
     display: flex;
     justify-content: center;
+}
+
+
+#answer_buttons {
+    width: 150px;
+    flex-direction: column;
+
 }
