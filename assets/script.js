@@ -7,7 +7,7 @@ var answerButton1 = document.querySelector(".answer_button_1");
 var answerButton2 = document.querySelector(".answer_button_2");
 var answerButton3 = document.querySelector(".answer_button_3");
 var answerButton4 = document.querySelector(".answer_button_4");
-var message = document.querySelector(".message");
+var comment = document.createElement("h2");
 var currentQuestion = 0;
 
 
@@ -68,10 +68,15 @@ answerbuttons.addEventListener("click", function (event) {
     var userChoice = event.target;
     console.log("Selection: " + userChoice.innerHTML);
 
-    var question1Answer = userChoice.innerHTML;
+    var userAnswer = userChoice.innerHTML;
 
-    if (question1Answer !== questions[0].correctAnswer) {
+    if (userAnswer !== questions[0].correctAnswer) {
         timeLeft -= 10;
+        comment.textContent = "Wrong!";
+        answerbuttons.append(comment);
+    } else if {
+        comment.textContent = "Correct";
+        answerbuttons.append(comment);
     }
 
     currentQuestion += 1;
