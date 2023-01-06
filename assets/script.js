@@ -8,7 +8,9 @@ var answerButton2 = document.querySelector(".answer_button_2");
 var answerButton3 = document.querySelector(".answer_button_3");
 var answerButton4 = document.querySelector(".answer_button_4");
 var comment = document.createElement("h2");
-var mainEl = document.querySelector("main");
+var resultPage = document.querySelector("#result_page");
+var score = document.querySelector(".score");
+var submitButton = document.querySelector("#submit_button");
 var currentQuestion = 0;
 
 
@@ -95,27 +97,32 @@ answerbuttons.addEventListener("click", function (event) {
 
 function scorePage() {
     var finalScore = timeLeft;
-    var message = document.createElement("h1");
-    var content = document.createElement("div");
-    var contentScore = document.createElement("div");
-    var submitButton = document.createElement("button");
 
     question.style.display = "none";
     answerbuttons.style.display = "none";
+    resultPage.style.display = "block";
 
-    message.textContent = "All done!"
-    content.textContent = "Your final score is " + finalScore + ".";
-    contentScore.textContent = "Enter initials:"
-    submitButton.innerHTML = "Submit";
-
-    mainEl.append(message);
-    mainEl.append(content);
-    mainEl.append(contentScore);
-    mainEl.append(submitButton);
+    score.textContent = "Your final score is " + finalScore + ".";
 
 }
 
+// function saveUserInput() {
 
+//     var usersInitial = {
+
+//         name: initials.value,
+//         score: finalScore
+//     };
+
+//         localStorage.setItem("usersInitial", JSON.stringify(usersInitial));
+
+// }
+
+
+// submitButton.addEventListener("click", function (event) {
+//     event.preventDefault();
+
+// })
 
 
 
