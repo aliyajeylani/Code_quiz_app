@@ -8,6 +8,7 @@ var answerButton2 = document.querySelector(".answer_button_2");
 var answerButton3 = document.querySelector(".answer_button_3");
 var answerButton4 = document.querySelector(".answer_button_4");
 var comment = document.createElement("h2");
+var mainEl = document.querySelector("main");
 var currentQuestion = 0;
 
 
@@ -70,7 +71,7 @@ answerbuttons.addEventListener("click", function (event) {
 
     var userAnswer = userChoice.innerHTML;
 
-    if (currentQuestion == 4) {
+    if (currentQuestion === 5) {
         return scorePage();
 
     } else if (userAnswer !== questions[currentQuestion].correctAnswer) {
@@ -93,15 +94,27 @@ answerbuttons.addEventListener("click", function (event) {
 })
 
 function scorePage() {
-    var message = document.createElement("img");
-    timeLeft.textContent = " ";
-    mainEl.appendChild(message);
+    var finalScore = timeLeft;
+    var message = document.createElement("h1");
+    var content = document.createElement("div");
+    var contentScore = document.createElement("div");
+    var submitButton = document.createElement("button");
+
+    message.textContent = "All done!"
+    content.textContent = "Your final score is" + finalScore;
+    contentScore.textContent = "Enter initials:"
+    submitButton.innerHTML = "Submit";
+
+    mainEl.append(message);
+    mainEl.append(content);
+    mainEl.append(contentScore);
+    mainEl.append(submitButton);
 
 }
 
 
 
-}
+
 
 
 
