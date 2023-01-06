@@ -71,7 +71,7 @@ answerbuttons.addEventListener("click", function (event) {
 
     var userAnswer = userChoice.innerHTML;
 
-    if (currentQuestion === 5) {
+    if (currentQuestion === 4) {
         return scorePage();
 
     } else if (userAnswer !== questions[currentQuestion].correctAnswer) {
@@ -100,8 +100,11 @@ function scorePage() {
     var contentScore = document.createElement("div");
     var submitButton = document.createElement("button");
 
+    question.style.display = "none";
+    answerbuttons.style.display = "none";
+
     message.textContent = "All done!"
-    content.textContent = "Your final score is" + finalScore;
+    content.textContent = "Your final score is " + finalScore + ".";
     contentScore.textContent = "Enter initials:"
     submitButton.innerHTML = "Submit";
 
