@@ -14,7 +14,7 @@ var submitButton = document.querySelector("#submit_button");
 var currentQuestion = 0;
 
 
-var timeLeft = 90;
+var timeLeft = 30;
 var questions = [
     {
         question: "Commonly used data types DO Not Include:",
@@ -45,6 +45,26 @@ var questions = [
 
 ]
 
+var clearTimer
+
+function endTimer() {
+    clearInterval(clearTimer)
+
+}
+
+function setTime() {
+    timeLeft--;
+    countdown.textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+        timeLeft = 0;
+        countdown.textContent = timeLeft;
+        endTimer();
+        scorePage();
+    }
+}
+
+
 startButton.addEventListener("click", function () {
     question.textContent = questions[currentQuestion].question;
     answerButton1.innerHTML = questions[currentQuestion].answers[0]
@@ -55,15 +75,7 @@ startButton.addEventListener("click", function () {
     startButton.style = "display: none";
     answerbuttons.style.display = "flex";
 
-    setInterval(() => {
-        timeLeft--;
-        countdown.textContent = timeLeft;
-
-        if (timeLeft == 0) {
-            clearInterval(setInterval);
-        }
-
-    }, 1000);
+    clearTimer = setInterval(setTime, 1000)
 });
 
 answerbuttons.addEventListener("click", function (event) {
@@ -106,15 +118,24 @@ function scorePage() {
 
 }
 
-// function saveUserInput() {
+function saveUserInput() {
 
-//     var usersInitial = {
+    var usersInitial = {
 
-//         name: initials.value,
-//         score: finalScore
-//     };
+        name: initials.value,
+        score: finalScore
+    };
 
-//         localStorage.setItem("usersInitial", JSON.stringify(usersInitial));
+    if (initials.value === "") {
+
+        alert("Please enter your initials");
+    } else {
+        localStorage.setItem("usersInitial", JSON.stringify(usersInitial));
+    }
+
+}
+
+// function showScore () {
 
 // }
 
