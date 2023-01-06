@@ -21,23 +21,23 @@ var questions = [
     {
         question: "The condition is an if/else statement is enclosed with _________.",
         answers: ["1. Quotes", "2. Curly brackets", "3. Parenthesis", "4. Square brackets"],
-        correctAnswer: "Curly brackets"
+        correctAnswer: "2. Curly brackets"
     },
     {
         question: "Arrays in JavaScript can be used to store _________.",
         answers: ["1. Numbers and strings", "2. Other arrays", "3. Booleans", "4. All of the above"],
-        correctAnswer: "All of the above"
+        correctAnswer: "4. All of the above"
     },
     {
         question: "String values must be enclosed within _______ when being assigned to variables.",
         answers: ["1. Commas", "2. Curly brackets", "3. Quotes", "4. Parenthesis"],
-        correctAnswer: "Quotes"
+        correctAnswer: "3. Quotes"
     },
     {
 
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
         answers: ["1. JavaScript", "2. Terminal/Bash", "3. For Loops", "4. Console.log"],
-        correctAnswer: "Console.log"
+        correctAnswer: "4. Console.log"
     }
 
 ]
@@ -70,11 +70,14 @@ answerbuttons.addEventListener("click", function (event) {
 
     var userAnswer = userChoice.innerHTML;
 
-    if (userAnswer !== questions[0].correctAnswer) {
+    if (currentQuestion == 4) {
+        return scorePage();
+
+    } else if (userAnswer !== questions[currentQuestion].correctAnswer) {
         timeLeft -= 10;
         comment.textContent = "Wrong!";
         answerbuttons.append(comment);
-    } else if {
+    } else {
         comment.textContent = "Correct";
         answerbuttons.append(comment);
     }
@@ -89,7 +92,16 @@ answerbuttons.addEventListener("click", function (event) {
 
 })
 
+function scorePage() {
+    var message = document.createElement("img");
+    timeLeft.textContent = " ";
+    mainEl.appendChild(message);
 
+}
+
+
+
+}
 
 
 
