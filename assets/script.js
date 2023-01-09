@@ -136,7 +136,7 @@ function showFinalPage() {
 
     var playerStats = localStorage.getItem("userInput");
 
-    output += playerStats + " " + finalScore;
+    output.innerHTML += playerStats + " - " + finalScore;
 
 
 }
