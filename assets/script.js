@@ -14,6 +14,7 @@ var submitButton = document.querySelector("#submit_button");
 var input = document.querySelector("input");
 var output = document.querySelector("#output");
 var finalPage = document.querySelector("#final_page");
+var finalScore;
 var currentQuestion = 0;
 
 
@@ -111,7 +112,7 @@ answerbuttons.addEventListener("click", function (event) {
 })
 
 function scorePage() {
-    var finalScore = timeLeft;
+    finalScore = timeLeft;
 
     question.style.display = "none";
     answerbuttons.style.display = "none";
