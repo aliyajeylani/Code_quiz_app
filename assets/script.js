@@ -14,6 +14,7 @@ var submitButton = document.querySelector("#submit_button");
 var input = document.querySelector("input");
 var output = document.querySelector("#output");
 var finalPage = document.querySelector("#final_page");
+var replay_button = document.querySelector("#replay");
 var finalScore;
 var currentQuestion = 0;
 
@@ -90,6 +91,7 @@ answerbuttons.addEventListener("click", function (event) {
     var userAnswer = userChoice.innerHTML;
 
     if (currentQuestion === 4) {
+        endTimer();
         return scorePage();
 
     } else if (userAnswer !== questions[currentQuestion].correctAnswer) {
@@ -158,7 +160,10 @@ submitButton.addEventListener("click", function (event) {
     }
 })
 
+// replay_button.addEventListener("click", function (event) {
 
+
+// })
 
 
 
