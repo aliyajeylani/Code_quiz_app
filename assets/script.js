@@ -15,9 +15,12 @@ var submitButton = document.querySelector("#submit_button");
 var input = document.querySelector("input");
 var output = document.querySelector("#output");
 var finalPage = document.querySelector("#final_page");
-var highScoresPage = document.querySelector("#compare_result");
+var highScoresPage = document.querySelector(".score_result");
 var replay_button = document.querySelector("#replay");
+var h2 = document.createElement("h2");
+var mainEL = document.querySelector("main");
 var finalScore;
+var initials;
 var currentQuestion = 0;
 
 
@@ -139,9 +142,9 @@ function showFinalPage() {
     timer.style.display = "none";
     finalPage.style.display = "block";
 
-    var playerStats = localStorage.getItem("userInput");
+    initials = localStorage.getItem("userInput");
 
-    output.innerHTML += playerStats + " - " + finalScore;
+    output.innerHTML += initials + " - " + finalScore;
 
 
 }
@@ -165,14 +168,29 @@ submitButton.addEventListener("click", function (event) {
 
 highScoresPage.addEventListener("click", function (event) {
 
-    output.innerHTML += playerStats + " - " + finalScore;
+    question.style.display = "none";
+    quiz.style.display = "none";
+    startButton.style.display = "none";
+    resultPage.style.display = "none";
+    timer.style.display = "none";
+    finalPage.style.display = "none";
+
+
+    h2.innerHTML += initials + " - " + finalScore;
+    mainEL.append(h2);
 
 })
 
-// replay_button.addEventListener("click", function (event) {
+// replay_button.addEventListener("click", rePlay()) {
 
 
 // })
 
+// function replay() {
+//     question.style.display = "block";
+//     quiz.style.display = "block";
+//     startButton.style.display = "block";
+//     timer.style.display = "block";
 
+// }
 
