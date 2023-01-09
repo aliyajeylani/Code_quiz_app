@@ -1,4 +1,5 @@
 var startButton = document.querySelector("#start_button");
+var timer = document.querySelector(".timer");
 var countdown = document.querySelector(".timer_count");
 var question = document.querySelector(".question");
 var answerbuttons = document.querySelector("#answer_buttons");
@@ -14,6 +15,7 @@ var submitButton = document.querySelector("#submit_button");
 var input = document.querySelector("input");
 var output = document.querySelector("#output");
 var finalPage = document.querySelector("#final_page");
+var highScoresPage = document.querySelector("#compare_result");
 var replay_button = document.querySelector("#replay");
 var finalScore;
 var currentQuestion = 0;
@@ -29,7 +31,7 @@ var questions = [
     {
         question: "The condition is an if/else statement is enclosed with _________.",
         answers: ["1. Quotes", "2. Curly brackets", "3. Parenthesis", "4. Square brackets"],
-        correctAnswer: "2. Curly brackets"
+        correctAnswer: "3. Parenthesis"
     },
     {
         question: "Arrays in JavaScript can be used to store _________.",
@@ -134,6 +136,7 @@ function showFinalPage() {
 
 
     resultPage.style.display = "none";
+    timer.style.display = "none";
     finalPage.style.display = "block";
 
     var playerStats = localStorage.getItem("userInput");
@@ -158,6 +161,12 @@ submitButton.addEventListener("click", function (event) {
     } else {
         showFinalPage();
     }
+})
+
+highScoresPage.addEventListener("click", function (event) {
+
+    output.innerHTML += playerStats + " - " + finalScore;
+
 })
 
 // replay_button.addEventListener("click", function (event) {
