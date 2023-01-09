@@ -39,7 +39,7 @@ p {
 #result_page {
     margin: auto;
     width: 50%;
-    border: 3px solid green;
+    border: 3px solid black;
     padding: 10px;
     text-align: center;
 }
@@ -50,4 +50,12 @@ p {
     font-size: 25px;
     width: 150px;
     height: 120;
+}
+
+#final_page {
+    margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    padding: 10px;
+    text-align: center;
 }

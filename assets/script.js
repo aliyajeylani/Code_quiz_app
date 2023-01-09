@@ -11,10 +11,13 @@ var comment = document.createElement("h2");
 var resultPage = document.querySelector("#result_page");
 var score = document.querySelector(".score");
 var submitButton = document.querySelector("#submit_button");
+var input = document.querySelector("input");
+var output = document.querySelector("#output");
+var finalPage = document.querySelector("#final_page");
 var currentQuestion = 0;
 
 
-var timeLeft = 30;
+var timeLeft = 60;
 var questions = [
     {
         question: "Commonly used data types DO Not Include:",
@@ -120,30 +123,39 @@ function scorePage() {
 
 function saveUserInput() {
 
-    var usersInitial = {
-
-        name: initials.value,
-        score: finalScore
-    };
-
-    if (initials.value === "") {
-
-        alert("Please enter your initials");
-    } else {
-        localStorage.setItem("usersInitial", JSON.stringify(usersInitial));
-    }
+    localStorage.setItem("userInput", input.value);
 
 }
 
-// function showScore () {
-
-// }
+function showFinalPage() {
 
 
-// submitButton.addEventListener("click", function (event) {
-//     event.preventDefault();
+    resultPage.style.display = "none";
+    finalPage.style.display = "block";
 
-// })
+    var playerStats = localStorage.getItem("userInput");
+
+    output += playerStats + " " + finalScore;
+
+
+}
+
+input.addEventListener("keyup", saveUserInput);
+
+submitButton.addEventListener("click", function (event) {
+
+    event.preventDefault();
+
+    if (input.value === "") {
+
+        alert("Please enter your initials");
+
+        return;
+
+    } else {
+        showFinalPage();
+    }
+})
 
 
 
