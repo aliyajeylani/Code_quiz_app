@@ -1,4 +1,3 @@
-# Code_quiz_app
 
 # Description
 
