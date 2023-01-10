@@ -189,18 +189,18 @@ highScoresPage.addEventListener("click", function (event) {
     finalPage.style.display = "none";
 
 
-    h2.innerHTML += initials + " - " + finalScore;
-    mainEL.append(h2);
+    return showFinalPage();
 
 })
 
-replay_button.addEventListener("click", rePlay())
+replay_button.addEventListener("click", rePlay)
 
 function rePlay() {
     question.style.display = "block";
     quiz.style.display = "block";
     startButton.style.display = "block";
     timer.style.display = "block";
+    finalPage.style.display = "none";
 
 }
 
