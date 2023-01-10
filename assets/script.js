@@ -197,10 +197,16 @@ replay_button.addEventListener("click", rePlay)
 
 function rePlay() {
     question.style.display = "block";
-    quiz.style.display = "block";
+    question.innerHTML = "Coding Quiz Challenge";
+    quiz.style.display = "flex";
+    quiz.classList.add("center_text");
     startButton.style.display = "block";
-    timer.style.display = "block";
+    timer.style.display = "flex";
+    countdown.innerHTML = "60";
     finalPage.style.display = "none";
+    timeLeft = 60;
+    currentQuestion = 0;
+    input.value = "";
 
 }
 
