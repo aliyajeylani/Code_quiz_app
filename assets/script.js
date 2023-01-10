@@ -23,6 +23,8 @@ var finalScore;
 var initials;
 var currentQuestion = 0;
 
+var highScores = JSON.parse(localStorage.getItem("userInput")) || [];
+
 
 var timeLeft = 60;
 var questions = [
@@ -130,8 +132,12 @@ function scorePage() {
 }
 
 function saveUserInput() {
+    highScores.push({
+        initials: input.value,
+        score: finalScore
+    })
 
-    localStorage.setItem("userInput", input.value);
+    localStorage.setItem("userInput", JSON.stringify(highScores));
 
 }
 
@@ -142,14 +148,20 @@ function showFinalPage() {
     timer.style.display = "none";
     finalPage.style.display = "block";
 
-    initials = localStorage.getItem("userInput");
+    output.innerHTML = "";
 
-    output.innerHTML += initials + " - " + finalScore;
+    for (var i = 0; i < highScores.length; i++) {
+        var highScore = highScores[i];
+        var li = document.createElement("li");
+        li.textContent = highScore.initials + " - " + highScore.score;
+        console.log(highScore);
+        li.setAttribute("data-index", i);
+        output.appendChild(li);
+    }
 
-
+    console.log(highScores);
 }
 
-input.addEventListener("keyup", saveUserInput);
 
 submitButton.addEventListener("click", function (event) {
 
@@ -162,6 +174,7 @@ submitButton.addEventListener("click", function (event) {
         return;
 
     } else {
+        saveUserInput();
         showFinalPage();
     }
 })
@@ -181,16 +194,13 @@ highScoresPage.addEventListener("click", function (event) {
 
 })
 
-// replay_button.addEventListener("click", rePlay()) {
+replay_button.addEventListener("click", rePlay())
 
+function rePlay() {
+    question.style.display = "block";
+    quiz.style.display = "block";
+    startButton.style.display = "block";
+    timer.style.display = "block";
 
-// })
-
-// function replay() {
-//     question.style.display = "block";
-//     quiz.style.display = "block";
-//     startButton.style.display = "block";
-//     timer.style.display = "block";
-
-// }
+}
 
